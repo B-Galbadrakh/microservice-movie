@@ -1,0 +1,2 @@
+INSERT INTO MOVIE (movieid, name, description, release_date) VALUES(1, 'Inception', 'Good movie', TO_DATE('2010-04-14', 'YYYY-MM-DD'));
+INSERT INTO MOVIE (movieid, name, description, release_date) VALUES(2, 'Hitch', 'Comedy movie', TO_DATE('2005-10-23', 'YYYY-MM-DD'));
