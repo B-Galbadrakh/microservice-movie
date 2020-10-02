@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.miu.moviecatalogservice.dto.MovieCollectionDTO;
 import com.miu.moviecatalogservice.models.CatalogItem;
 import com.miu.moviecatalogservice.models.Movie;
 import com.miu.moviecatalogservice.models.Rating;
@@ -39,7 +40,10 @@ public class MovieCatalogResource {
 		
 		return ratings.stream().map(rating->{
 			Movie movie = restTemplate.getForObject("http://movie-info-service/movies/"+rating.getMovieId(), Movie.class);
-			return new CatalogItem(movie.getName(), "movie desc", rating.getRating());
+			if(movie != null) {
+				return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
+			}
+			return null;
 			
 		}).collect(Collectors.toList());
 		

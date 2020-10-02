@@ -1,8 +1,6 @@
-package com.miu.ratingdataservice.resources;
+package com.miu.ratingdataservice.models;
 
 import java.util.List;
-
-import com.miu.ratingdataservice.models.Rating;
 
 public class UserRating {
 
